@@ -32,6 +32,7 @@ import {
   faDollarSign,
   faEdit,
   faEnvelope,
+  faExchange,
   faExclamationCircle,
   faExclamationTriangle,
   faEye,
@@ -107,7 +108,10 @@ import {
   faFileExcel,
   faFileExport,
   faCalculator,
-  faCalendarCheck
+  faCalendarCheck,
+  faPause,
+  faReceipt,
+  faTableCells
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -153,6 +157,7 @@ export class IconsModule {
       faDollarSign,
       faEdit,
       faEnvelope,
+      faExchange,
       faExclamationCircle,
       faExclamationTriangle,
       faEye,
@@ -177,6 +182,7 @@ export class IconsModule {
       faMinusCircle,
       faMoneyBillAlt,
       faMoneyCheck,
+      faPause,
       faPencilAlt,
       faPlay,
       faPlus,
@@ -227,7 +233,10 @@ export class IconsModule {
       faTasks,
       faCoins,
       faPiggyBank,
-      faBars
+      faBars,
+      faUndo,
+      faReceipt,
+      faTableCells
     );
   }
 

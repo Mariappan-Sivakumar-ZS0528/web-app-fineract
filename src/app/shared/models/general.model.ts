@@ -15,6 +15,7 @@ export interface GLAccount {
   name:                   string;
   glCode:                 string;
   description:            string;
+  nameDecorated?:         string;
   disabled:               boolean;
   manualEntriesAllowed:   boolean;
   type:                   OptionData;
@@ -64,8 +65,8 @@ export interface Charge {
   isPaymentType?:                 boolean;
   currency?:                      Currency;
   amount?:                        number;
-  chargeTimeType?:                Charge;
-  chargeAppliesTo?:               Charge;
-  chargeCalculationType?:         Charge;
-  chargePaymentMode?:             Charge;
+  chargeTimeType?:                OptionData;
+  chargeAppliesTo?:               OptionData;
+  chargeCalculationType?:         OptionData;
+  chargePaymentMode?:             OptionData;
 }

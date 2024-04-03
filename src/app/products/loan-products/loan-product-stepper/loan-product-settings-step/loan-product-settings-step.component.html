@@ -136,13 +136,6 @@
       </mat-checkbox>
     </div>
 
-    <div *ngIf="loanProductSettingsForm.value.multiDisburseLoan && loanProductSettingsForm.value.enableDownPayment" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
-      <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="disableScheduleExtensionForDownPayment" matTooltip="Enable or disable If Fineract extends the
-      repayment schedule to the exact number of repayments configured for that loan account" class="margin-b">
-        Do not extend loan schedule for multi disbursal
-      </mat-checkbox>
-    </div>
-
     <mat-divider fxFlex="98%"></mat-divider>
 
     <span fxFlex="48%" fxHide.lt-md></span>
@@ -163,11 +156,15 @@
 
     <mat-form-field fxFlex="48%">
       <mat-label>Delinquency Bucket</mat-label>
-      <mat-select formControlName="delinquencyBucketId" required>
+      <mat-select formControlName="delinquencyBucketId">
         <mat-option *ngFor="let delinquencyBucket of delinquencyBucketData" [value]="delinquencyBucket.id">
           {{ delinquencyBucket.name }}
         </mat-option>
       </mat-select>
+      <button mat-button *ngIf="loanProductSettingsForm.controls.delinquencyBucketId" matSuffix mat-icon-button
+        aria-label="Clear" (click)="clearProperty($event, 'delinquencyBucketId')">
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="enableInstallmentLevelDelinquency" class="margin-v">

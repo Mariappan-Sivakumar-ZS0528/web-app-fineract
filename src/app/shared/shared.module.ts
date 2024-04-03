@@ -43,6 +43,10 @@ import { AccountNumberComponent } from './account-number/account-number.componen
 import { EntityNameComponent } from './entity-name/entity-name.component';
 import { TransactionPaymentDetailComponent } from './transaction-payment-detail/transaction-payment-detail.component';
 import { StepperButtonsComponent } from './steppers/stepper-buttons/stepper-buttons.component';
+import { GlAccountSelectorComponent } from './accounting/gl-account-selector/gl-account-selector.component';
+import { GlAccountDisplayComponent } from './accounting/gl-account-display/gl-account-display.component';
+import { ViewSavingsAccountingDetailsComponent } from './accounting/view-savings-accounting-details/view-savings-accounting-details.component';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 
 /**
  * Shared Module
@@ -92,7 +96,11 @@ import { StepperButtonsComponent } from './steppers/stepper-buttons/stepper-butt
     AccountNumberComponent,
     EntityNameComponent,
     TransactionPaymentDetailComponent,
-    StepperButtonsComponent
+    StepperButtonsComponent,
+    GlAccountSelectorComponent,
+    GlAccountDisplayComponent,
+    ViewSavingsAccountingDetailsComponent,
+    ThemeToggleComponent
   ],
   exports: [
     FileUploadComponent,
@@ -120,7 +128,11 @@ import { StepperButtonsComponent } from './steppers/stepper-buttons/stepper-butt
     SvgIconComponent,
     EntityNameComponent,
     TransactionPaymentDetailComponent,
-    StepperButtonsComponent
+    StepperButtonsComponent,
+    GlAccountSelectorComponent,
+    GlAccountDisplayComponent,
+    ViewSavingsAccountingDetailsComponent,
+    ThemeToggleComponent
   ]
 })
 export class SharedModule { }

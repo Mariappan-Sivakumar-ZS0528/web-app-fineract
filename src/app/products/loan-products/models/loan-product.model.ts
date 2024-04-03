@@ -1,6 +1,6 @@
 import { AccountingMapping, ChargeToIncomeAccountMapping, Currency, PaymentChannelToFundSourceMapping } from 'app/shared/models/general.model';
 import { OptionData } from 'app/shared/models/option-data.model';
-import { PaymentAllocation } from '../loan-product-stepper/loan-product-payment-strategy-step/payment-allocation-model';
+import { CreditAllocation, PaymentAllocation } from '../loan-product-stepper/loan-product-payment-strategy-step/payment-allocation-model';
 
 export interface LoanProduct {
   id:                                                        number;
@@ -10,6 +10,7 @@ export interface LoanProduct {
   useBorrowerCycle:                                          boolean;
   status:                                                    string;
   currency:                                                  Currency;
+  currencyCode?:                                             string;
   fundId?:                                                   number;
   fundName?:                                                 string;
   startDate?:                                                string;
@@ -40,6 +41,7 @@ export interface LoanProduct {
   transactionProcessingStrategyCode:                         string;
   transactionProcessingStrategyName:                         string;
   paymentAllocation?:                                        PaymentAllocation[];
+  creditAllocation?:                                         CreditAllocation[];
   daysInMonthType:                                           OptionData;
   daysInYearType:                                            OptionData;
   isInterestRecalculationEnabled:                            boolean;
@@ -68,6 +70,8 @@ export interface LoanProduct {
   advancedPaymentAllocationTransactionTypes:                 OptionData[];
   advancedPaymentAllocationFutureInstallmentAllocationRules: OptionData[];
   advancedPaymentAllocationTypes:                            OptionData[];
+  creditAllocationTransactionTypes:                          OptionData[];
+  creditAllocationAllocationTypes:                           OptionData[];
   multiDisburseLoan:                                         boolean;
   maxTrancheCount:                                           number;
   disallowExpectedDisbursements:                             boolean;
@@ -81,6 +85,7 @@ export interface LoanProduct {
   isEqualAmortization:                                       boolean;
   delinquencyBucketOptions:                                  DelinquencyBucket[];
   delinquencyBucket:                                         DelinquencyBucket;
+  delinquencyBucketId?:                                      number;
   graceOnPrincipalPayment?:                                  number;
   graceOnInterestPayment?:                                   number;
   graceOnInterestCharged?:                                   number;
@@ -89,7 +94,6 @@ export interface LoanProduct {
   overDueDaysForRepaymentEvent:                              number;
   enableDownPayment:                                         boolean;
   enableAutoRepaymentForDownPayment:                         boolean;
-  disableScheduleExtensionForDownPayment:                    boolean;
   enableInstallmentLevelDelinquency:                         boolean;
   loanScheduleType:                                          OptionData;
   loanScheduleProcessingType:                                OptionData;
@@ -136,9 +140,9 @@ export interface AllowAttributeOverrides {
 }
 
 export interface DelinquencyBucket {
-  id:     number;
-  name:   string;
-  ranges: Range[];
+  id:      number;
+  name:    string;
+  ranges?: Range[];
 }
 
 export interface Range {

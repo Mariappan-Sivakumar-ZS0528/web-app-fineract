@@ -82,7 +82,7 @@
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%" *ngIf="fixedDepositAccountSettingsForm.contains('linkAccountId')" class="margin-b">
-      <mat-label>{{"labels.inputs.Link Savings Account" | translate }}</mat-label>
+      <mat-label>{{"labels.inputs.Linked Savings Account" | translate }}</mat-label>
       <mat-select formControlName="linkAccountId" required>
         <mat-option *ngFor="let account of savingsAccountsData" [value]="account.id">
           {{ account.accountNo }}
@@ -90,6 +90,29 @@
       </mat-select>
       <mat-error>
         {{"labels.inputs.Linked Savings Account" | translate }} {{ "labels.commons.is"  |translate}} <strong>{{ "labels.commons.required" | translate}}</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-divider fxFlex="98%"></mat-divider>
+
+    <mat-form-field fxFlex="48%">
+      <mat-label>{{"labels.inputs.Maturity Instructions" | translate }}</mat-label>
+      <mat-select formControlName="maturityInstructionId">
+        <mat-option *ngFor="let maturityInstruction of maturityInstructionOptions" [value]="maturityInstruction.id">
+          {{ maturityInstruction.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="48%" *ngIf="fixedDepositAccountSettingsForm.contains('transferToSavingsId')" class="margin-b">
+      <mat-label>{{"labels.inputs.Transfer to savings account" | translate }}</mat-label>
+      <mat-select formControlName="transferToSavingsId" required>
+        <mat-option *ngFor="let account of savingsAccountsData" [value]="account.id">
+          {{ account.accountNo }}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        {{"labels.inputs.Transfer to savings account" | translate }} {{ "labels.commons.is"  |translate}} <strong>{{ "labels.commons.required" | translate}}</strong>
       </mat-error>
     </mat-form-field>
 

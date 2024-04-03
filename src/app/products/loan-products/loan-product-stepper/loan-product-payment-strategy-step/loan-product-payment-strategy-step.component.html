@@ -6,7 +6,17 @@
             {{advancedPaymentAllocation.transaction.code}}
         </ng-template>
         <mifosx-advance-payment-allocation-tab [advancedPaymentAllocation]="advancedPaymentAllocation"
-            (paymentAllocationChange)="paymentAllocationChanged($event)"
+            (allocationChanged)="allocationChanged($event)"
+            (transactionTypeRemoved)="transactionTypeRemoved($event)">
+        </mifosx-advance-payment-allocation-tab>
+    </mat-tab>
+
+    <mat-tab *ngFor="let advancedCreditAllocation of advancedCreditAllocations">
+        <ng-template mat-tab-label>
+            {{advancedCreditAllocation.transaction.code}}
+        </ng-template>
+        <mifosx-advance-payment-allocation-tab [advancedCreditAllocation]="advancedCreditAllocation"
+            (allocationChanged)="allocationChanged($event)"
             (transactionTypeRemoved)="transactionTypeRemoved($event)">
         </mifosx-advance-payment-allocation-tab>
     </mat-tab>

@@ -14,6 +14,11 @@
     <span fxFlex="60%">{{ fixedDepositAccountData.submittedOnDate  | dateFormat }}</span>
   </div>
 
+  <div fxFlexFill *ngIf="fixedDepositAccountData.externalId">
+    <span fxFlex="40%">{{"labels.inputs.External Id" | translate }}</span>
+    <span fxFlex="60%">{{ fixedDepositAccountData.externalId }}</span>
+  </div>
+
   <div fxFlexFill>
     <span fxFlex="40%">{{"labels.inputs.Field Officer" | translate }}</span>
     <span fxFlex="60%">{{ (fixedDepositAccountData.fieldOfficerId | find:fixedDepositsAccountProductTemplate.fieldOfficerOptions:'id':'displayName') || 'Unassigned' }}</span>
@@ -104,6 +109,11 @@
   <div fxFlexFill *ngIf="fixedDepositAccountData.transferInterestToSavings">
     <span fxFlex="40%">{{"labels.inputs.Linked Savings Account" | translate }}</span>
     <span fxFlex="60%">{{ fixedDepositAccountData.linkAccountId | find:fixedDepositsAccountProductTemplate.savingsAccounts:'id':'accountNo' }}</span>
+  </div>
+
+  <div fxFlexFill *ngIf="fixedDepositAccountData.maturityInstructionId">
+    <span fxFlex="40%">{{"labels.inputs.Maturity Instructions" | translate }}</span>
+    <span fxFlex="60%">{{ fixedDepositAccountData.maturityInstructionId | find:fixedDepositsAccountProductTemplate.maturityInstructionOptions:'id':'value' }}</span>
   </div>
 
   <div fxFlexFill>

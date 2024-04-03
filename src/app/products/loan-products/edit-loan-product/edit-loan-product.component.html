@@ -38,14 +38,6 @@
 
       </mat-step>
 
-      <mat-step [stepControl]="loanProductTermsForm" completed>
-
-        <ng-template matStepLabel>TERMS</ng-template>
-
-        <mifosx-loan-product-terms-step [loanProductsTemplate]="loanProductAndTemplate"></mifosx-loan-product-terms-step>
-
-      </mat-step>
-
       <mat-step [stepControl]="loanProductSettingsForm" completed>
 
         <ng-template matStepLabel>SETTINGS</ng-template>
@@ -65,13 +57,25 @@
 
         <mifosx-loan-product-payment-strategy-step
           [advancedPaymentAllocations]="advancedPaymentAllocations"
+          [advancedCreditAllocations]="advancedCreditAllocations"
           [advancedPaymentAllocationTransactionTypes]="loanProductAndTemplate.advancedPaymentAllocationTransactionTypes"
           [paymentAllocationOrderDefault]="loanProductAndTemplate.advancedPaymentAllocationTypes"
+          [advancedCreditAllocationTransactionTypes]="loanProductAndTemplate.creditAllocationTransactionTypes"
+          [creditAllocationOrderDefault]="loanProductAndTemplate.creditAllocationAllocationTypes"
           (setPaymentAllocation)="setPaymentAllocation($event)"
+          (setCreditAllocation)="setCreditAllocation($event)"
         >
         </mifosx-loan-product-payment-strategy-step>
 
         <mifosx-stepper-buttons></mifosx-stepper-buttons>
+
+      </mat-step>
+
+      <mat-step [stepControl]="loanProductTermsForm" completed>
+
+        <ng-template matStepLabel>TERMS</ng-template>
+
+        <mifosx-loan-product-terms-step [loanProductsTemplate]="loanProductAndTemplate"></mifosx-loan-product-terms-step>
 
       </mat-step>
 

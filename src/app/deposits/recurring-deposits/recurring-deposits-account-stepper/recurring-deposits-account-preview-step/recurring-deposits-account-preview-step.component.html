@@ -40,7 +40,7 @@
     <span fxFlex="60%">{{ recurringDepositsAccountProductTemplate.currency.inMultiplesOf }}</span>
   </div>
 
-  <h3 class="mat-h3" fxFlexFill>{{"labels.inputs.Terms" | translate }}</h3>
+  <h3 class="mat-h3" fxFlexFill>{{"labels.heading.Terms" | translate }}</h3>
   <mat-divider fxFlexFill></mat-divider>
 
   <div fxFlexFill>
@@ -67,7 +67,7 @@
       fxFlex="60%">{{ recurringDepositAccountData.interestCalculationDaysInYearType | find:recurringDepositsAccountProductTemplate.interestCalculationDaysInYearTypeOptions:'id':'value' }}</span>
   </div>
 
-  <h3 class="mat-h3" fxFlexFill>{{"labels.inputs.Settings" | translate }}</h3>
+  <h3 class="mat-h3" fxFlexFill>{{"labels.heading.Settings" | translate }}</h3>
 
   <mat-divider fxFlexFill></mat-divider>
 
@@ -77,9 +77,9 @@
       fxFlex="60%">{{ recurringDepositAccountData.lockinPeriodFrequency + ' ' + (recurringDepositAccountData.lockinPeriodFrequencyType | find:recurringDepositsAccountProductTemplate.lockinPeriodFrequencyTypeOptions:'id':'value') }}</span>
   </div>
 
-  <div fxFlexFill>
+  <div fxFlexFill *ngIf="recurringDepositAccountData.mandatoryRecommendedDepositAmount">
     <span fxFlex="40%">{{"labels.inputs.Recurring Deposit Amount" | translate }}:</span>
-    <span fxFlex="60%">{{ recurringDepositAccountData?.mandatoryRecommendedDepositAmount}}</span>
+    <span fxFlex="60%">{{ recurringDepositAccountData.mandatoryRecommendedDepositAmount | formatNumber}}</span>
   </div>
 
   <div fxFlexFill>
