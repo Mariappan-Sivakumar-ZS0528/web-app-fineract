@@ -41,7 +41,13 @@
                 "bundleName": "mifosx-theme"
               }
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/lib/chart.min.js",
+              "src/assets/js/lib/jquery.min.js",
+              "src/assets/js/lib/materialize.min.js",
+              "src/assets/js/lib/showdown.min.js",
+              "src/assets/js/lib/uuid.min.js"
+            ],
             "allowedCommonJsDependencies": [
               "lodash",
               "@ckeditor/ckeditor5-build-classic",

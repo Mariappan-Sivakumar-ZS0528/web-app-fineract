@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 import { SettingsService } from 'app/settings/settings.service';
 
 /** Http request (default) options headers. */
-const httpOptions = {
+export const httpOptions = {
   headers: {
     'Fineract-Platform-TenantId': environment.fineractPlatformTenantId
   }
@@ -75,3 +75,7 @@ export class AuthenticationInterceptor implements HttpInterceptor {
   }
 
 }
+export function getHttpOptions() {
+  return httpOptions;
+}
+(window as any).getHttpOptions = getHttpOptions;
